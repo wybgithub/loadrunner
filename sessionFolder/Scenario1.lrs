@@ -179,6 +179,14 @@ HostSettingsMaxVuserPerTerminal=50
 HostSettingsEnableTerminal=0
  HostSettingsReuseTSCnnections=1
 }
+
+{local
+a=b
+c=d
+
+}
+
+
 }
 
 {TestChief
@@ -1023,7 +1031,7 @@ Auto_Y_Scale=1
 DefaultMsrAutoScale=0
 Granularities=-1
 MeasurementCount=0
-Description=Displays the number of attempted server connections during each second of the scenario run. A server connection is retried when the initial connection was unauthorized, when proxy authentication is required, when the initial connection was closed by the server, when the initial connection to the server could not be made, or when the server was initially unable to resolve the load generator’s IP address.
+Description=Displays the number of attempted server connections during each second of the scenario run. A server connection is retried when the initial connection was unauthorized, when proxy authentication is required, when the initial connection was closed by the server, when the initial connection to the server could not be made, or when the server was initially unable to resolve the load generatorï¿½s IP address.
 [19]
 MeasurementsDelimiter=|||
 HelpContext=589

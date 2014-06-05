@@ -1,15 +1,18 @@
 import os
 from handles import *
 from handlersImpl import *
+from hostChiefImpl import *
 from stack import *
+from templates import *
+
 class BlockSpliter:
     templateFile = "./Scenario1.lrs"
+    templates = []
     
-    def split(self):
+    def splitParaSeg(self):
         allBlocks = []
         st = Stack()
         handles = Handlers()
-        #print os.getcwd()
         fh = open(self.templateFile)
         lines = fh.readlines()
         start = ""
@@ -17,7 +20,6 @@ class BlockSpliter:
             line = lines[j]
             if start != "":
                 start += line
-                #print line.strip()
                 if "{" in line:
                     st.push("{")
                 elif "}" in line:
@@ -25,29 +27,19 @@ class BlockSpliter:
                     if st.isEmpty():
                         allBlocks.append(start)
                         start = ""
-                        #print line.strip()
-                        #print "--------------"
                 else:
-                    continue
-                
+                    continue  
             for i in range(len(handles.getHandlerTypes())):
-                #print "a " + str(i)
-                #print handles.getHandlerTypes()
                 flag = "{" + handles.getHandlerTypes()[i]
                 if flag in line:
                     start = line
-                    st.push("{")
-                    #print "in"
-                    #print line
-                    process = globals()[handles.getHandlerTypes()[i]]()
-                    process.handle()
-                    #print line.strip()
+                    st.push("{")          
                     break
-            #print "end"
                 
-        for s in allBlocks:
-            print s.strip()
-            print "----------"
+        for i in range(len(allBlocks)):
+            process = globals()[handles.getHandlerTypes()[i]]()
+            template = process.handle(allBlocks[i])
+            self.templates.append(template)
         fh.close()
         
     
