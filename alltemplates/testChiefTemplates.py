@@ -1,11 +1,14 @@
 '''
-Created on Jun 4, 2014
+Created on Jun 5, 2014
 
 @author: wyb
 '''
 from templates import *
 
-class HostChiefTemplate(Template):
+
+class TestChiefTemplate(Template):
+    
+    prefix = "{HostChief"
     
     subTemplates = []
     
@@ -18,7 +21,7 @@ class HostChiefTemplate(Template):
         #print s
         pass
     
-class SingleHostTemplate(Template):
+class SingleTestChiefTemplate(Template):
      
     def handle(self, s):
         #print s

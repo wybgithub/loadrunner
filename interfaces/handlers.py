@@ -11,6 +11,8 @@ class Handlers:
 
     functionsList = []
     
+    dict = {}
+    
     def getHandlerTypes(self):
         return self.a
     
@@ -18,13 +20,17 @@ class Handlers:
         pass
     
     def analyze(self, s):
-        dict = {}
+        firstTime = True
         lines = s.split("\n")
         for line in lines:
+            if (("{" in line) and (firstTime == True)):
+                index = line.find("{")
+                dict["templateName"] = line[index:].strip()
+                firstTime = False
             if "=" in line:
                 kv = line.split("=")
-                dict[kv[0].strip()]=kv[1].strip()
-        return dict
+                self.dict[kv[0].strip()]=kv[1].strip()
+        return self.dict
         pass
 
     

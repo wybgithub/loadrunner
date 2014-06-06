@@ -3,9 +3,9 @@ Created on Jun 3, 2014
 
 @author: wyb
 '''
-from handles import *
-from templates import *
-from stack import *
+from interfaces.handlers import *
+from alltemplates.templates import *
+from core.stack import *
 
 class Product(Handlers):
     
@@ -44,14 +44,7 @@ class ScenarioIniFlags(Handlers):
         template = ScenarioIniFlagsTemplate(dict)
         return template
         pass
-    
-class TestChief(Handlers):
-    def handle(self, s):
-        dict = self.analyze(s)
-        template = TestChiefTemplate(dict)
-        return template
-        pass
-    
+       
 class OnlineMonitor(Handlers):
     def handle(self, s):
         dict = self.analyze(s)
@@ -77,13 +70,6 @@ class ScenarioAlertsConfig(Handlers):
     def handle(self, s):
         dict = self.analyze(s)
         template = ScenarioAlertsConfigTemplate(dict)
-        return template
-        pass
-    
-class ScenarioSchedulerConfig(Handlers):
-    def handle(self, s):
-        dict = self.analyze(s)
-        template = ScenarioSchedulerConfigTemplate(dict)
         return template
         pass
     

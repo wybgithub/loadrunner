@@ -8,9 +8,11 @@ Created on Jun 3, 2014
 
 @author: wyb
 '''
-from handles import *
+from interfaces.handlers import *
 
 class Template:
+    
+    templateName = ""
     dict = {}
     
     def __init__(self, dict):
@@ -22,7 +24,6 @@ class ProductTemplate(Template):
 class ScenarioGeneralConfigTemplate(Template):
 
     def handle(self, s):
-        print "haha2"
         pass
         
 class ScenarioPrivateConfigTemplate(Template):
@@ -36,11 +37,6 @@ class ScenarioCommonConfigTemplate(Template):
         pass
     
 class ScenarioIniFlagsTemplate(Template):
-    def handle(self, s):
-        #print s
-        pass
-    
-class TestChiefTemplate(Template):
     def handle(self, s):
         #print s
         pass
@@ -61,11 +57,6 @@ class ScenarioDiagnosticsTemplate(Template):
         pass
     
 class ScenarioAlertsConfigTemplate(Template):
-    def handle(self, s):
-        #print s
-        pass
-    
-class ScenarioSchedulerConfigTemplate(Template):
     def handle(self, s):
         #print s
         pass

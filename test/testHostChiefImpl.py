@@ -3,11 +3,11 @@ Created on Jun 5, 2014
 
 @author: wyb
 '''
-from handlers import *
-from handlersImpl import *
-from hostChiefImpl import *
-from stack import *
-from templates import *
+from core.handlers import *
+from core.handlersImpl import *
+from core.hostChiefImpl import *
+from core.stack import *
+from core.templates import *
 
 def main():
     templates = []

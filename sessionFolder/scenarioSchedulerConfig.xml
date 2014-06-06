@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LoadTest>
+  <Schedulers>
+    <CurrentSchedulerId>1</CurrentSchedulerId>
+    <StartMode>
+      <StartModeType>Immediately</StartModeType>
+      <StartModes>
+        <Immediately />
+        <DelayAfterLTStart>0</DelayAfterLTStart>
+        <StartAt>2014-04-20T15:18:38.3561881+08:00</StartAt>
+      </StartModes>
+    </StartMode>
+    <Scheduler ID="1">
+      <Name>Schedule 1</Name>
+      <Manual>
+        <SchedulerType>Global</SchedulerType>
+        <Global>
+          <Scheduling>
+            <IsDefaultScheduler>true</IsDefaultScheduler>
+            <Initialization>
+              <InitAll>
+                <StartCondition>
+                  <PrevAction />
+                </StartCondition>
+              </InitAll>
+              <DelayAfterInitialization>0</DelayAfterInitialization>
+            </Initialization>
+            <DynamicScheduling>
+              <RampUp>
+                <StartCondition>
+                  <PrevAction />
+                </StartCondition>
+                <Batch>
+                  <Count>1</Count>
+                  <Interval>15</Interval>
+                </Batch>
+                <TotalVusersNumber>1</TotalVusersNumber>
+              </RampUp>
+              <Duration>
+                <StartCondition>
+                  <PrevAction />
+                </StartCondition>
+                <RunFor>50</RunFor>
+              </Duration>
+              <StopAll>
+                <StartCondition>
+                  <PrevAction />
+                </StartCondition>
+              </StopAll>
+            </DynamicScheduling>
+          </Scheduling>
+        </Global>
+        <Groups>
+          <InitAllBeforeStart>false</InitAllBeforeStart>
+        </Groups>
+      </Manual>
+    </Scheduler>
+  </Schedulers>
+</LoadTest>
+

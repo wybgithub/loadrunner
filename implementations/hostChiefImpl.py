@@ -3,10 +3,10 @@ Created on Jun 4, 2014
 
 @author: wyb
 '''
-from handlers import *
-from templates import *
-from stack import *
-from hostTemplates import *
+from interfaces.handlers import *
+from alltemplates.templates import *
+from core.stack import *
+from alltemplates.hostChiefTemplates import *
 
 class HostChief(Handlers):
     
