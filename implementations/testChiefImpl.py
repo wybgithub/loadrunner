@@ -11,10 +11,11 @@ from alltemplates.testChiefTemplates import *
 class TestChief(Handlers):
     
     subTemplates = []
+    
     hostNames = []
     
     def analyze(self, s):
-        print "analyze"
+        firstTime = True
         m = 0
         dict = {}
         s = s.strip()
@@ -32,7 +33,7 @@ class TestChief(Handlers):
                     if st.isEmpty():
                         m+=1
                         start = start.strip()
-                        sublines = start.split("\r\n")
+                        sublines = start.split("\n")
                         for j in range(len(sublines)):
                             if "=" in sublines[j]:
                                 kv = sublines[j].split("=")
@@ -44,7 +45,11 @@ class TestChief(Handlers):
                     continue  
             if (("{" in lines[i]) and (i != 0)):
                 start = line
-                st.push("{")  
+                st.push("{")
+                if firstTime == True:
+                    index = line.find("{")
+                    self.dict["templateName"] = line[index:].strip()
+                    firstTime = False  
     
     def handle(self, s):
         dict = self.analyze(s)

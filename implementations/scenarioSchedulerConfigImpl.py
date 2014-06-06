@@ -54,6 +54,7 @@ class ScenarioSchedulerConfig(Handlers):
                 else:
                     continue
             if ("{" in lines[i]):
+                
                 start = line
                 st.push("{")
                 if firstTime == True:

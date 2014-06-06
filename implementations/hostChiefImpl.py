@@ -14,7 +14,7 @@ class HostChief(Handlers):
     hostNames = []
     
     def analyze(self, s):
-        print "analyze"
+        firstTime = True
         m = 0
         dict = {}
         s = s.strip()
@@ -44,7 +44,11 @@ class HostChief(Handlers):
                     continue  
             if (("{" in lines[i]) and (i != 0)):
                 start = line
-                st.push("{")  
+                st.push("{")
+                if firstTime == True:
+                    index = line.find("{")
+                    self.dict["templateName"] = line[index:].strip()
+                    firstTime = False 
     
     def handle(self, s):
         dict = self.analyze(s)
